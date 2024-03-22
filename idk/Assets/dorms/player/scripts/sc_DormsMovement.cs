@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 public class sc_DormsMovement : MonoBehaviour
 {
-    public Transform model;
+    [SerializeField] Transform model;
 
     private CharacterController characterController;
     private void Awake()

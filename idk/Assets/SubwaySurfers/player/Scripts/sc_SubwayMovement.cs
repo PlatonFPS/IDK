@@ -39,7 +39,7 @@ public class sc_SubwayMovement : MonoBehaviour
     IEnumerator SwitchLanes(int direction)
     {
         canSwitchLanes = false;
-        Debug.Log("Switching Lanes | Direction: " + (direction > 0 ? "Right" : "Left"));
+        //Debug.Log("Switching Lanes | Direction: " + (direction > 0 ? "Right" : "Left"));
         int nextLane = currentLane + direction;
         if(nextLane >= 0 && nextLane < Lanes.Count)
         {
