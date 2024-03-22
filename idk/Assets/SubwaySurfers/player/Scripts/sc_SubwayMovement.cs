@@ -4,54 +4,33 @@ using UnityEngine;
 
 public class sc_SubwayMovement : MonoBehaviour
 {
-    [SerializeField] List<Transform> Lanes = new List<Transform>();
-    [SerializeField] int currentLane = 0;
-
-    private CharacterController characterController;
+    [SerializeField] List<Transform> Lanes;
+    [SerializeField] int currentLane;
+    private Rigidbody rigidbody;
     private void Awake()
     {
-        characterController = GetComponent<CharacterController>();
-        characterController.minMoveDistance = 0;
+        rigidbody = GetComponent<Rigidbody>();
         ChangeToLanePosition(currentLane);
     }
 
-    [SerializeField] float minAxisDeviation = 0.1f;
-    [SerializeField] float forwardSpeed = 5f;
+    [SerializeField] float minAxisDeviation;
+    [SerializeField] float forwardSpeed;
+    [SerializeField] float jumpPower;
+    private float jumpCoeffient = 10f;
     private void Movement()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         if (Mathf.Abs(horizontalInput) > minAxisDeviation && canSwitchLanes)
         {
-            characterController.enabled = false;
             StartCoroutine(SwitchLanes(horizontalInput > minAxisDeviation ? 1 : -1));
-            characterController.enabled = true;
         }
-        characterController.Move(transform.forward * forwardSpeed * Time.deltaTime);
+        rigidbody.position += transform.forward * forwardSpeed * Time.deltaTime;
 
-        Debug.Log(isGrounded);
-        if (Input.GetKey(KeyCode.Space) && !jumping && isGrounded)
+        if (Input.GetKey(KeyCode.Space) && isGrounded)
         {
-            Debug.Log("Jumping");
-            jumping = true;
-            jumpTimer = jumpDuration;
+            rigidbody.AddForce(transform.up * jumpPower * jumpCoeffient, ForceMode.Acceleration);
+            isGrounded = false;
         }
-    }
-
-    [SerializeField] float jumpPower = 25f;
-    [SerializeField] float jumpDuration = 1.0f;
-    private bool jumping = false;
-    private float jumpTimer = 0f;
-    void Jump()
-    {
-        if((jumping && isGrounded) || (jumpTimer <= 0))
-        {
-            jumpTimer = 0f;
-            jumping = false;
-            return;
-        }
-        Debug.Log("Jumping | Timer: " + jumpTimer);
-        jumpTimer -= Time.deltaTime;
-        characterController.Move(transform.up * jumpPower * Time.deltaTime);
     }
 
     void ChangeToLanePosition(int lane)
@@ -64,7 +43,6 @@ public class sc_SubwayMovement : MonoBehaviour
     IEnumerator SwitchLanes(int direction)
     {
         canSwitchLanes = false;
-        //Debug.Log("Switching Lanes | Direction: " + (direction > 0 ? "Right" : "Left"));
         int nextLane = currentLane + direction;
         if(nextLane >= 0 && nextLane < Lanes.Count)
         {
@@ -78,25 +56,26 @@ public class sc_SubwayMovement : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         canSwitchLanes = true;
     }
-
-    [SerializeField] float gravity = 9.81f;
-    private void Gravity()
-    {
-        if (!isGrounded)
-        {
-            characterController.Move(new Vector3(0, -gravity, 0) * Time.deltaTime);
-        }
-    }
-
     void Update()
     {
-        Jump();
         Movement();
         Gravity();
     }
 
-
-    public bool isGrounded = false;
+    [SerializeField] float gravity;
+    [SerializeField] float fallingGravity;
+    private bool isGrounded = false;
+    private void Gravity()
+    {
+        if(rigidbody.velocity.y < 0)
+        {
+            rigidbody.AddForce(Physics.gravity * fallingGravity * Time.deltaTime, ForceMode.Acceleration);
+        } 
+        else
+        {
+            rigidbody.AddForce(Physics.gravity * gravity * Time.deltaTime, ForceMode.Acceleration);
+        }
+    }
     void OnCollisionEnter(Collision collision)
     {
         Debug.Log("Entered");
