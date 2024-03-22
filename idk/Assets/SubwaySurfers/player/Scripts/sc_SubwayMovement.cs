@@ -33,10 +33,12 @@ public class sc_SubwayMovement : MonoBehaviour
 
         rigidbody.position += transform.forward * forwardSpeed * Time.deltaTime;
 
+        Debug.Log(isGrounded);
         if ((Input.GetKey(KeyCode.Space) || Input.GetAxis("Vertical") > minAxisDeviation) && isGrounded && !crouching)
         {
             rigidbody.AddForce(transform.up * jumpPower * jumpCoeffient, ForceMode.Acceleration);
             isGrounded = false;
+            
         }
 
         if ((Input.GetKey(KeyCode.LeftControl) || Input.GetAxis("Vertical") < -minAxisDeviation) && isGrounded && !crouching)
@@ -107,6 +109,7 @@ public class sc_SubwayMovement : MonoBehaviour
     private bool playing = true;
     void Update()
     {
+        Debug.Log(groundedCount);
         if (playing)
         {
             Crouching();
@@ -156,6 +159,7 @@ public class sc_SubwayMovement : MonoBehaviour
     [SerializeField] float gravity;
     [SerializeField] float fallingGravity;
     private bool isGrounded = false;
+    private int groundedCount = 0;
     private void Gravity()
     {
         if(rigidbody.velocity.y < 0)
@@ -171,7 +175,11 @@ public class sc_SubwayMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = true;
+            groundedCount += 1;
+            if (groundedCount >= 1)
+            {
+                isGrounded = true;
+            }
         }
         if (collision.gameObject.CompareTag("SubwayObstacle"))
         {
@@ -182,7 +190,11 @@ public class sc_SubwayMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = false;
+            groundedCount -= 1;
+            if(groundedCount <= 0)
+            {
+                isGrounded = false;
+            }
         }
     }
 }

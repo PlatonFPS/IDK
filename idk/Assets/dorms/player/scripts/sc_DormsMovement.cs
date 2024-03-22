@@ -12,7 +12,7 @@ public class sc_DormsMovement : MonoBehaviour
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
+        animator = model.GetComponent<Animator>();
     }
 
     private void SetAnimation(string animationName, bool value)
@@ -26,7 +26,7 @@ public class sc_DormsMovement : MonoBehaviour
     {
         if(horizontalInput != 0 || verticalInput != 0)
         {
-            model.rotation = Quaternion.LookRotation(new Vector3(-horizontalInput, 0, -verticalInput));
+            model.rotation = Quaternion.LookRotation(new Vector3(horizontalInput, 0, verticalInput));
         }
     }
     private void Movement()
