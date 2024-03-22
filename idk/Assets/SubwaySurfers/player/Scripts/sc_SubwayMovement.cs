@@ -13,6 +13,7 @@ public class sc_SubwayMovement : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
         collider = GetComponent<CapsuleCollider>();
         ChangeToLanePosition(currentLane);
+        SetAnimation("Run", true);
     }
 
     [SerializeField] float minAxisDeviation;
@@ -33,7 +34,6 @@ public class sc_SubwayMovement : MonoBehaviour
 
         rigidbody.position += transform.forward * forwardSpeed * Time.deltaTime;
 
-        Debug.Log(isGrounded);
         if ((Input.GetKey(KeyCode.Space) || Input.GetAxis("Vertical") > minAxisDeviation) && isGrounded && !crouching)
         {
             rigidbody.AddForce(transform.up * jumpPower * jumpCoeffient, ForceMode.Acceleration);
@@ -75,7 +75,7 @@ public class sc_SubwayMovement : MonoBehaviour
         crouchTimer = CrouchTime;
         collider.height = 1f;
         collider.center = new Vector3(0, -0.5f, 0);
-        SetAnimation("test", false);
+        SetAnimation("Crouch", true);
     }
     private float crouchTimer = 0;
     [SerializeField] float CrouchTime;
@@ -97,13 +97,13 @@ public class sc_SubwayMovement : MonoBehaviour
         crouching = false;
         collider.height = 2f;
         collider.center = new Vector3(0, 0, 0);
-        SetAnimation("test", true);
+        SetAnimation("Crouch", false);
     }
 
-    [SerializeField] Transform Animator;
+    [SerializeField] Animator Animator;
     private void SetAnimation(string name, bool value)
     {
-        Animator.gameObject.SetActive(value);
+        Animator.SetBool(name, value);
     }
 
     private bool playing = true;
@@ -137,22 +137,23 @@ public class sc_SubwayMovement : MonoBehaviour
         {
             StartCoroutine(Wounded());
         }
-        collisionObject.SetActive(false);
+        collisionObject.GetComponent<sc_Obstacle>().Break();
     }
 
     [SerializeField] float WoundedTime;
     IEnumerator Wounded()
     {
-        //SetAnimation("wounded", true);
+        SetAnimation("Wounded", true);
         yield return new WaitForSeconds(WoundedTime);
-        //SetAnimation("wounded", false);
+        SetAnimation("Wounded", false);
         lives += 1;
-        Debug.Log("Wounded");
     }
 
     private void Crashed()
     {
         playing = false;
+        SetAnimation("Run", false);
+        SetAnimation("Wounded", false);
         Debug.Log("Crashed");
     }
 
@@ -176,9 +177,10 @@ public class sc_SubwayMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             groundedCount += 1;
-            if (groundedCount >= 1)
+            if (groundedCount >= 1 && !isGrounded)
             {
                 isGrounded = true;
+                SetAnimation("Jump", false);
             }
         }
         if (collision.gameObject.CompareTag("SubwayObstacle"))
@@ -194,6 +196,7 @@ public class sc_SubwayMovement : MonoBehaviour
             if(groundedCount <= 0)
             {
                 isGrounded = false;
+                SetAnimation("Jump", true);
             }
         }
     }
