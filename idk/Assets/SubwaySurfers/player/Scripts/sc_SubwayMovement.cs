@@ -115,6 +115,12 @@ public class sc_SubwayMovement : MonoBehaviour
         }
     }
 
+    public void Win()
+    {
+        playing = false;
+        Debug.Log("Win");
+    }
+
     private int lives = 2;
     private void Crash(GameObject collisionObject)
     {
