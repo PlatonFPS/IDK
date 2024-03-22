@@ -11,6 +11,7 @@ public class sc_SubwayMovement : MonoBehaviour
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
+        characterController.minMoveDistance = 0;
         ChangeToLanePosition(currentLane);
     }
 
@@ -27,8 +28,8 @@ public class sc_SubwayMovement : MonoBehaviour
         }
         characterController.Move(transform.forward * forwardSpeed * Time.deltaTime);
 
-        Debug.Log(characterController.isGrounded);
-        if (Input.GetKey(KeyCode.Space) && !jumping && characterController.isGrounded)
+        Debug.Log(isGrounded);
+        if (Input.GetKey(KeyCode.Space) && !jumping && isGrounded)
         {
             Debug.Log("Jumping");
             jumping = true;
@@ -42,7 +43,7 @@ public class sc_SubwayMovement : MonoBehaviour
     private float jumpTimer = 0f;
     void Jump()
     {
-        if((jumping && characterController.isGrounded) || (jumpTimer <= 0))
+        if((jumping && isGrounded) || (jumpTimer <= 0))
         {
             jumpTimer = 0f;
             jumping = false;
@@ -81,7 +82,7 @@ public class sc_SubwayMovement : MonoBehaviour
     [SerializeField] float gravity = 9.81f;
     private void Gravity()
     {
-        if (!characterController.isGrounded)
+        if (!isGrounded)
         {
             characterController.Move(new Vector3(0, -gravity, 0) * Time.deltaTime);
         }
@@ -92,5 +93,25 @@ public class sc_SubwayMovement : MonoBehaviour
         Jump();
         Movement();
         Gravity();
+    }
+
+
+    public bool isGrounded = false;
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Entered");
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        Debug.Log("Exited");
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
     }
 }
