@@ -20,7 +20,7 @@ public class sc_DormsMovement : MonoBehaviour
         //Debug.Log(animationName);
     }
 
-    private float movementSpeed = 5f;
+    [SerializeField] float movementSpeed;
 
     private void RotatePlayer(float horizontalInput, float verticalInput)
     {
