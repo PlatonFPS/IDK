@@ -4,53 +4,33 @@ using UnityEngine;
 
 public class sc_SubwayMovement : MonoBehaviour
 {
-    [SerializeField] List<Transform> Lanes = new List<Transform>();
-    [SerializeField] int currentLane = 0;
-
-    private CharacterController characterController;
+    [SerializeField] List<Transform> Lanes;
+    [SerializeField] int currentLane;
+    private Rigidbody rigidbody;
     private void Awake()
     {
-        characterController = GetComponent<CharacterController>();
+        rigidbody = GetComponent<Rigidbody>();
         ChangeToLanePosition(currentLane);
     }
 
-    [SerializeField] float minAxisDeviation = 0.1f;
-    [SerializeField] float forwardSpeed = 5f;
+    [SerializeField] float minAxisDeviation;
+    [SerializeField] float forwardSpeed;
+    [SerializeField] float jumpPower;
+    private float jumpCoeffient = 10f;
     private void Movement()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         if (Mathf.Abs(horizontalInput) > minAxisDeviation && canSwitchLanes)
         {
-            characterController.enabled = false;
             StartCoroutine(SwitchLanes(horizontalInput > minAxisDeviation ? 1 : -1));
-            characterController.enabled = true;
         }
-        characterController.Move(transform.forward * forwardSpeed * Time.deltaTime);
+        rigidbody.position += transform.forward * forwardSpeed * Time.deltaTime;
 
-        Debug.Log(characterController.isGrounded);
-        if (Input.GetKey(KeyCode.Space) && !jumping && characterController.isGrounded)
+        if (Input.GetKey(KeyCode.Space) && isGrounded)
         {
-            Debug.Log("Jumping");
-            jumping = true;
-            jumpTimer = jumpDuration;
+            rigidbody.AddForce(transform.up * jumpPower * jumpCoeffient, ForceMode.Acceleration);
+            isGrounded = false;
         }
-    }
-
-    [SerializeField] float jumpPower = 25f;
-    [SerializeField] float jumpDuration = 1.0f;
-    private bool jumping = false;
-    private float jumpTimer = 0f;
-    void Jump()
-    {
-        if((jumping && characterController.isGrounded) || (jumpTimer <= 0))
-        {
-            jumpTimer = 0f;
-            jumping = false;
-            return;
-        }
-        Debug.Log("Jumping | Timer: " + jumpTimer);
-        jumpTimer -= Time.deltaTime;
-        characterController.Move(transform.up * jumpPower * Time.deltaTime);
     }
 
     void ChangeToLanePosition(int lane)
@@ -63,7 +43,6 @@ public class sc_SubwayMovement : MonoBehaviour
     IEnumerator SwitchLanes(int direction)
     {
         canSwitchLanes = false;
-        //Debug.Log("Switching Lanes | Direction: " + (direction > 0 ? "Right" : "Left"));
         int nextLane = currentLane + direction;
         if(nextLane >= 0 && nextLane < Lanes.Count)
         {
@@ -77,20 +56,41 @@ public class sc_SubwayMovement : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         canSwitchLanes = true;
     }
+    void Update()
+    {
+        Movement();
+        Gravity();
+    }
 
-    [SerializeField] float gravity = 9.81f;
+    [SerializeField] float gravity;
+    [SerializeField] float fallingGravity;
+    private bool isGrounded = false;
     private void Gravity()
     {
-        if (!characterController.isGrounded)
+        if(rigidbody.velocity.y < 0)
         {
-            characterController.Move(new Vector3(0, -gravity, 0) * Time.deltaTime);
+            rigidbody.AddForce(Physics.gravity * fallingGravity * Time.deltaTime, ForceMode.Acceleration);
+        } 
+        else
+        {
+            rigidbody.AddForce(Physics.gravity * gravity * Time.deltaTime, ForceMode.Acceleration);
+        }
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("Entered");
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = true;
         }
     }
 
-    void Update()
+    void OnCollisionExit(Collision collision)
     {
-        Jump();
-        Movement();
-        Gravity();
+        Debug.Log("Exited");
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            isGrounded = false;
+        }
     }
 }
