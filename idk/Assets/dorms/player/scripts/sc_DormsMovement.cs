@@ -3,14 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class sc_Movement : MonoBehaviour
+public class sc_DormsMovement : MonoBehaviour
 {
-    public enum Location
-    {
-        Dorms, Uni
-    }
-
-    public Location currentLocation = Location.Dorms;
     public Transform model;
 
     private CharacterController characterController;
@@ -23,7 +17,7 @@ public class sc_Movement : MonoBehaviour
     {
         /*Animator animator = GetComponent<Animator>();
         animator.Play(animationName);*/
-        Debug.Log(animationName);
+        //Debug.Log(animationName);
     }
 
     private float movementSpeed = 5f;
@@ -35,7 +29,7 @@ public class sc_Movement : MonoBehaviour
             model.rotation = Quaternion.LookRotation(new Vector3(-horizontalInput, 0, -verticalInput));
         }
     }
-    private void DormsMovement()
+    private void Movement()
     {
         if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
         {
@@ -49,18 +43,9 @@ public class sc_Movement : MonoBehaviour
             SetAnimation("Idle"); 
         }
     }
-
     // Update is called once per frame
     void Update()
     {
-        switch (currentLocation)
-        {
-            case Location.Dorms: 
-                DormsMovement(); 
-                break;
-            default:
-                Debug.Log("Incorrect location");
-                break;
-        }
+        Movement();
     }
 }
