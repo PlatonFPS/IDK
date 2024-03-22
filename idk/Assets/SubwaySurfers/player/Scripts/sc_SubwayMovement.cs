@@ -16,29 +16,38 @@ public class sc_SubwayMovement : MonoBehaviour
     [SerializeField] float minAxisDeviation;
     [SerializeField] float forwardSpeed;
     [SerializeField] float jumpPower;
+    [SerializeField] float axisDeviation;
     private float jumpCoeffient = 10f;
     private void Movement()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
+
         if (Mathf.Abs(horizontalInput) > minAxisDeviation && canSwitchLanes)
         {
             StartCoroutine(SwitchLanes(horizontalInput > minAxisDeviation ? 1 : -1));
         }
         rigidbody.position += transform.forward * forwardSpeed * Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.Space) && isGrounded)
+        if ((Input.GetKey(KeyCode.Space) || Input.GetAxis("Vertical") > axisDeviation) && isGrounded)
         {
             rigidbody.AddForce(transform.up * jumpPower * jumpCoeffient, ForceMode.Acceleration);
             isGrounded = false;
         }
     }
 
+    private float laneTargetPosition;
     void ChangeToLanePosition(int lane)
     {
-        Vector3 position = Lanes[lane].position;
-        transform.position = new Vector3(position.x, transform.position.y, transform.position.z);
+        laneTargetPosition = Lanes[lane].position.x;
     }
 
+    private float interpolation = 0.05f;
+    void LateUpdate()
+    {
+        transform.position = Vector3.Lerp(transform.position, new Vector3(laneTargetPosition, transform.position.y, transform.position.z), interpolation);
+    }
+
+    [SerializeField] float laneSwitchDelay;
     private bool canSwitchLanes = true;
     IEnumerator SwitchLanes(int direction)
     {
@@ -48,12 +57,8 @@ public class sc_SubwayMovement : MonoBehaviour
         {
             ChangeToLanePosition(nextLane);
             currentLane = nextLane;
-        }
-        else
-        {
-            Debug.Log("Cannot switch lanes");
-        }
-        yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(laneSwitchDelay);
+        }       
         canSwitchLanes = true;
     }
     void Update()
@@ -78,7 +83,6 @@ public class sc_SubwayMovement : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("Entered");
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
@@ -87,7 +91,6 @@ public class sc_SubwayMovement : MonoBehaviour
 
     void OnCollisionExit(Collision collision)
     {
-        Debug.Log("Exited");
         if (collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;

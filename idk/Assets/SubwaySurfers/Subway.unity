@@ -725,6 +725,8 @@ MonoBehaviour:
   minAxisDeviation: 0.1
   forwardSpeed: 1
   jumpPower: 30
+  axisDeviation: 0.1
+  laneSwitchDelay: 0.35
   gravity: 35
   fallingGravity: 60
 --- !u!136 &1538766345
