@@ -1339,6 +1339,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   model: {fileID: 427614273}
+  movementSpeed: 15
 --- !u!4 &439787976
 Transform:
   m_ObjectHideFlags: 0
