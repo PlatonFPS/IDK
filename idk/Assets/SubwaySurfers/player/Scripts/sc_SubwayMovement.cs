@@ -7,9 +7,11 @@ public class sc_SubwayMovement : MonoBehaviour
     [SerializeField] List<Transform> Lanes;
     [SerializeField] int currentLane;
     private Rigidbody rigidbody;
+    private CapsuleCollider collider;
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
+        collider = GetComponent<CapsuleCollider>();
         ChangeToLanePosition(currentLane);
     }
 
@@ -28,10 +30,15 @@ public class sc_SubwayMovement : MonoBehaviour
         }
         rigidbody.position += transform.forward * forwardSpeed * Time.deltaTime;
 
-        if ((Input.GetKey(KeyCode.Space) || Input.GetAxis("Vertical") > axisDeviation) && isGrounded)
+        if ((Input.GetKey(KeyCode.Space) || Input.GetAxis("Vertical") > axisDeviation) && isGrounded && !crouching)
         {
             rigidbody.AddForce(transform.up * jumpPower * jumpCoeffient, ForceMode.Acceleration);
             isGrounded = false;
+        }
+
+        if ((Input.GetKey(KeyCode.LeftControl) || Input.GetAxis("Vertical") < -axisDeviation) && isGrounded && !crouching)
+        {
+            Crouch();
         }
     }
 
@@ -61,8 +68,48 @@ public class sc_SubwayMovement : MonoBehaviour
         }       
         canSwitchLanes = true;
     }
+
+    private bool crouching = false;
+    private void Crouch()
+    {
+        crouching = true;
+        crouchTimer = CrouchTime;
+        collider.height = 1f;
+        collider.center = new Vector3(0, -0.5f, 0);
+        SetAnimation("test", false);
+    }
+    private float crouchTimer = 0;
+    [SerializeField] float CrouchTime;
+    private void Crouching()
+    {
+        if (crouching)
+        {
+            if (crouchTimer <= 0)
+            {
+                UnCrouch();
+                crouchTimer = 0;
+                return;
+            }
+            crouchTimer -= Time.deltaTime;
+        }
+    }
+    private void UnCrouch()
+    {
+        crouching = false;
+        collider.height = 2f;
+        collider.center = new Vector3(0, 0, 0);
+        SetAnimation("test", true);
+    }
+
+    [SerializeField] Transform Animator;
+    private void SetAnimation(string name, bool value)
+    {
+        Animator.gameObject.SetActive(value);
+    }
+
     void Update()
     {
+        Crouching();
         Movement();
         Gravity();
     }

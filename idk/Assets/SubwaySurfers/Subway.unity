@@ -727,6 +727,8 @@ MonoBehaviour:
   jumpPower: 30
   axisDeviation: 0.1
   laneSwitchDelay: 0.35
+  CrouchTime: 0.75
+  Animator: {fileID: 1948745250}
   gravity: 35
   fallingGravity: 60
 --- !u!136 &1538766345
