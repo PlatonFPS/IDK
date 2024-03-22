@@ -15,10 +15,11 @@ public class sc_LocationContoller : MonoBehaviour
     private List<Transform> locations = new List<Transform>();
     private void Awake()
     {
-        Transform location = locationsReserve[Random.Range(0, locationsReserve.Count)];
+        int index = Random.Range(0, locationsReserve.Count);
+        Transform location = locationsReserve[index];
+        locationsReserve.RemoveAt(index);
         location.transform.position = new Vector3(location.transform.position.z, location.transform.position.y, player.position.z);
         locations.Add(location);
-        Debug.Log(locations.Count + " " + location.position);
 
         for (int i = 1; i < locationReserveLenght; i++)
         {
@@ -27,15 +28,20 @@ public class sc_LocationContoller : MonoBehaviour
     }
     private void PushLocation()
     {
-        Transform location = locationsReserve[Random.Range(0, locationsReserve.Count)];
+        int index = Random.Range(0, locationsReserve.Count);
+        Transform location = locationsReserve[index];
+        locationsReserve.RemoveAt(index);
         location.transform.position = new Vector3(location.transform.position.x, location.transform.position.y, locations[locations.Count - 1].position.z + locationLenght);
         locations.Add(location);
-        Debug.Log(locations.Count + " " + location.position);
     }
     private void PopLocation()
     {
-        locations[0].position = locationOrigin.position;
-        locations.RemoveAt(0);
+        if(locations.Count > locationReserveLenght + locationTailCount)
+        {
+            locations[0].position = locationOrigin.position;
+            locationsReserve.Add(locations[0]);
+            locations.RemoveAt(0);
+        }
     }
 
     void Update()
