@@ -1,0 +1,66 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UIElements;
+
+public class sc_Movement : MonoBehaviour
+{
+    public enum Location
+    {
+        Dorms, Uni
+    }
+
+    public Location currentLocation = Location.Dorms;
+    public Transform model;
+
+    private CharacterController characterController;
+    private void Awake()
+    {
+        characterController = GetComponent<CharacterController>();
+    }
+
+    private void SetAnimation(string animationName)
+    {
+        /*Animator animator = GetComponent<Animator>();
+        animator.Play(animationName);*/
+        Debug.Log(animationName);
+    }
+
+    private float movementSpeed = 5f;
+
+    private void RotatePlayer(float horizontalInput, float verticalInput)
+    {
+        if(horizontalInput != 0 || verticalInput != 0)
+        {
+            model.rotation = Quaternion.LookRotation(new Vector3(-horizontalInput, 0, -verticalInput));
+        }
+    }
+    private void DormsMovement()
+    {
+        if(Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0)
+        {
+            float speed = movementSpeed * Time.deltaTime;
+            characterController.Move(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * speed);
+            SetAnimation("Walk");
+            RotatePlayer(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        }
+        else 
+        { 
+            SetAnimation("Idle"); 
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        switch (currentLocation)
+        {
+            case Location.Dorms: 
+                DormsMovement(); 
+                break;
+            default:
+                Debug.Log("Incorrect location");
+                break;
+        }
+    }
+}
