@@ -18,25 +18,28 @@ public class sc_SubwayMovement : MonoBehaviour
     [SerializeField] float minAxisDeviation;
     [SerializeField] float forwardSpeed;
     [SerializeField] float jumpPower;
-    [SerializeField] float axisDeviation;
     private float jumpCoeffient = 10f;
+    private float interpolation = 0.1f;
     private void Movement()
     {
+        rigidbody.position = Vector3.Lerp(transform.position, new Vector3(laneTargetPosition, transform.position.y, transform.position.z), interpolation);
+
         float horizontalInput = Input.GetAxis("Horizontal");
 
         if (Mathf.Abs(horizontalInput) > minAxisDeviation && canSwitchLanes)
         {
             StartCoroutine(SwitchLanes(horizontalInput > minAxisDeviation ? 1 : -1));
         }
+
         rigidbody.position += transform.forward * forwardSpeed * Time.deltaTime;
 
-        if ((Input.GetKey(KeyCode.Space) || Input.GetAxis("Vertical") > axisDeviation) && isGrounded && !crouching)
+        if ((Input.GetKey(KeyCode.Space) || Input.GetAxis("Vertical") > minAxisDeviation) && isGrounded && !crouching)
         {
             rigidbody.AddForce(transform.up * jumpPower * jumpCoeffient, ForceMode.Acceleration);
             isGrounded = false;
         }
 
-        if ((Input.GetKey(KeyCode.LeftControl) || Input.GetAxis("Vertical") < -axisDeviation) && isGrounded && !crouching)
+        if ((Input.GetKey(KeyCode.LeftControl) || Input.GetAxis("Vertical") < -minAxisDeviation) && isGrounded && !crouching)
         {
             Crouch();
         }
@@ -46,12 +49,6 @@ public class sc_SubwayMovement : MonoBehaviour
     void ChangeToLanePosition(int lane)
     {
         laneTargetPosition = Lanes[lane].position.x;
-    }
-
-    private float interpolation = 0.05f;
-    void LateUpdate()
-    {
-        transform.position = Vector3.Lerp(transform.position, new Vector3(laneTargetPosition, transform.position.y, transform.position.z), interpolation);
     }
 
     [SerializeField] float laneSwitchDelay;
@@ -114,6 +111,18 @@ public class sc_SubwayMovement : MonoBehaviour
         Gravity();
     }
 
+    private int lives = 2;
+    private void Crash(GameObject collisionObject)
+    {
+        lives -= 1;
+        if(lives <= 0)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        collisionObject.SetActive(false);
+    }
+
     [SerializeField] float gravity;
     [SerializeField] float fallingGravity;
     private bool isGrounded = false;
@@ -134,8 +143,11 @@ public class sc_SubwayMovement : MonoBehaviour
         {
             isGrounded = true;
         }
+        if (collision.gameObject.CompareTag("SubwayObstacle"))
+        {
+            Crash(collision.gameObject);
+        }
     }
-
     void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
