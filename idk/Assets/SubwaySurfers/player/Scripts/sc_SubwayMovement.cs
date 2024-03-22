@@ -11,12 +11,11 @@ public class sc_SubwayMovement : MonoBehaviour
     private void Awake()
     {
         characterController = GetComponent<CharacterController>();
-        canSwitchLanes = true;
         ChangeToLanePosition(currentLane);
     }
 
-    public float minAxisDeviation = 0.1f;
-    public float forwardSpeed = 5f;
+    [SerializeField] float minAxisDeviation = 0.1f;
+    [SerializeField] float forwardSpeed = 5f;
     private void Movement()
     {
         float horizontalInput = Input.GetAxis("Horizontal");
@@ -27,6 +26,31 @@ public class sc_SubwayMovement : MonoBehaviour
             characterController.enabled = true;
         }
         characterController.Move(transform.forward * forwardSpeed * Time.deltaTime);
+
+        Debug.Log(characterController.isGrounded);
+        if (Input.GetKey(KeyCode.Space) && !jumping && characterController.isGrounded)
+        {
+            Debug.Log("Jumping");
+            jumping = true;
+            jumpTimer = jumpDuration;
+        }
+    }
+
+    [SerializeField] float jumpPower = 25f;
+    [SerializeField] float jumpDuration = 1.0f;
+    private bool jumping = false;
+    private float jumpTimer = 0f;
+    void Jump()
+    {
+        if((jumping && characterController.isGrounded) || (jumpTimer <= 0))
+        {
+            jumpTimer = 0f;
+            jumping = false;
+            return;
+        }
+        Debug.Log("Jumping | Timer: " + jumpTimer);
+        jumpTimer -= Time.deltaTime;
+        characterController.Move(transform.up * jumpPower * Time.deltaTime);
     }
 
     void ChangeToLanePosition(int lane)
@@ -35,7 +59,7 @@ public class sc_SubwayMovement : MonoBehaviour
         transform.position = new Vector3(position.x, transform.position.y, transform.position.z);
     }
 
-    private bool canSwitchLanes;
+    private bool canSwitchLanes = true;
     IEnumerator SwitchLanes(int direction)
     {
         canSwitchLanes = false;
@@ -54,8 +78,19 @@ public class sc_SubwayMovement : MonoBehaviour
         canSwitchLanes = true;
     }
 
+    [SerializeField] float gravity = 9.81f;
+    private void Gravity()
+    {
+        if (!characterController.isGrounded)
+        {
+            characterController.Move(new Vector3(0, -gravity, 0) * Time.deltaTime);
+        }
+    }
+
     void Update()
     {
+        Jump();
         Movement();
+        Gravity();
     }
 }
