@@ -104,11 +104,15 @@ public class sc_SubwayMovement : MonoBehaviour
         Animator.gameObject.SetActive(value);
     }
 
+    private bool playing = true;
     void Update()
     {
-        Crouching();
-        Movement();
-        Gravity();
+        if (playing)
+        {
+            Crouching();
+            Movement();
+            Gravity();
+        }
     }
 
     private int lives = 2;
@@ -117,10 +121,30 @@ public class sc_SubwayMovement : MonoBehaviour
         lives -= 1;
         if(lives <= 0)
         {
-            Destroy(gameObject);
+            Crashed();
             return;
         }
+        if(lives == 1)
+        {
+            StartCoroutine(Wounded());
+        }
         collisionObject.SetActive(false);
+    }
+
+    [SerializeField] float WoundedTime;
+    IEnumerator Wounded()
+    {
+        //SetAnimation("wounded", true);
+        yield return new WaitForSeconds(WoundedTime);
+        //SetAnimation("wounded", false);
+        lives += 1;
+        Debug.Log("Wounded");
+    }
+
+    private void Crashed()
+    {
+        playing = false;
+        Debug.Log("Crashed");
     }
 
     [SerializeField] float gravity;

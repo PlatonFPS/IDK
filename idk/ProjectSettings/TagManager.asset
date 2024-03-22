@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - SubwayWall
   - Ground
+  - SubwayObstacle
   layers:
   - Default
   - TransparentFX
