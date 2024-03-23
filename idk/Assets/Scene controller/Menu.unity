@@ -338,7 +338,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9149eb08d03147043b8129f3df005a4d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 281e41740ef79f541815c02c5036cbed, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -385,9 +385,9 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1699427720}
-  - {fileID: 1488496328}
-  - {fileID: 350367882}
   - {fileID: 1590703648}
+  - {fileID: 350367882}
+  - {fileID: 1488496328}
   m_Father: {fileID: 786332040}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -641,7 +641,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 70d2109330bf3324ea873969444c17df, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e35e269a131dcb94dacdf1b13c7d594a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -796,7 +796,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: Subway
+          m_StringArgument: dorms
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1590703651
@@ -819,7 +819,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b78b2ae2f7be4e443804a66158bce92c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8eb3dc6e81fa17149bbb5c56cf77f494, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -894,7 +894,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d4dae6db2af91864ab0079f5e845aaef, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3011d6a9ef01f9c4ab4414af7a6d6beb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
