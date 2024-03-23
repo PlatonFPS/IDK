@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/SubwaySurfers/Subway.unity
+    guid: cc41042a359ac0845a4f90007cc4abfd
+  - enabled: 1
+    path: Assets/Scene controller/Menu.unity
+    guid: 52e2b40119e4b974ba164dc1f86218c4
   m_configObjects: {}

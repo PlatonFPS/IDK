@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class sc_SceneContoller : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void ChangeScene(string sceneName)
     {
-        
+        StartCoroutine(Animation(sceneName));
     }
-
-    // Update is called once per frame
-    void Update()
+    [SerializeField] float loadingTime = 2f;
+    [SerializeField] Animator animator;
+    IEnumerator Animation(string sceneName)
     {
-        
+        animator.SetTrigger("ChangeScene");
+        yield return new WaitForSeconds(2 + loadingTime);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }
 }
