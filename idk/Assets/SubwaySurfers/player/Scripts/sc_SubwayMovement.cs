@@ -154,7 +154,7 @@ public class sc_SubwayMovement : MonoBehaviour
         playing = false;
         SetAnimation("Run", false);
         SetAnimation("Wounded", false);
-        sc_SceneContoller.ChangeScene("Menu");
+        sc_SceneContoller.ChangeScene("Dorms");
         Debug.Log("Crashed");
     }
 
