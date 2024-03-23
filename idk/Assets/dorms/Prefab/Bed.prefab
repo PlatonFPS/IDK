@@ -535,6 +535,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: 5caddbf076474b646beb0e2e2e541cc7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f446d093741e94e4fb85e92d9b552654, type: 2}
     - target: {fileID: 919132149155446097, guid: 5caddbf076474b646beb0e2e2e541cc7, type: 3}
       propertyPath: m_Name
       value: blanket3
@@ -613,6 +617,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 179f48011b9c06443bc50798cdef5975, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f446d093741e94e4fb85e92d9b552654, type: 2}
     - target: {fileID: 919132149155446097, guid: 179f48011b9c06443bc50798cdef5975, type: 3}
       propertyPath: m_Name
       value: pillow
