@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class sc_Obstacle : MonoBehaviour
 {
-    private MeshRenderer renderer;
+    [SerializeField] GameObject model;
     private Collider collider;
     private void Awake()
     {
-        renderer = GetComponent<MeshRenderer>();
         collider = GetComponent<Collider>();
     }
 
@@ -19,10 +18,10 @@ public class sc_Obstacle : MonoBehaviour
     }
     IEnumerator Dissappear()
     {
-        renderer.enabled = false;
+        model.SetActive(false);
         collider.enabled = false;
         yield return new WaitForSeconds(dissappearDuration);
         collider.enabled = true;
-        renderer.enabled = true;
+        model.SetActive(true);
     }
 }

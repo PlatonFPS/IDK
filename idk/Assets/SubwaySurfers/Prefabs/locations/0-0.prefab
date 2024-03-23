@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 3545433096138192309}
   - component: {fileID: 2933463825195903012}
   m_Layer: 0
-  m_Name: Main
+  m_Name: 0-0
   m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
