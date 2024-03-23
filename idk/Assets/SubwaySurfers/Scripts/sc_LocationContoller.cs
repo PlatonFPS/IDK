@@ -6,16 +6,26 @@ using UnityEngine;
 public class sc_LocationContoller : MonoBehaviour
 {
     [SerializeField] Transform player;
-    [SerializeField] List<Transform> locationsReserve;
     [SerializeField] float locationLenght;
     [SerializeField] int locationReserveLenght;
     [SerializeField] int locationTailCount;
     [SerializeField] Transform locationOrigin;
 
+    private List<Transform> locationsReserve = new List<Transform>();
+    private void SetupReserve()
+    {
+        for(int i = 0; i < transform.childCount; i++)
+        {
+            locationsReserve.Add(transform.GetChild(i));
+        }
+    }
+
     private List<Transform> locations = new List<Transform>();
     private sc_SubwayMovement sc_SubwayMovement;
     private void Awake()
     {
+        SetupReserve();
+
         sc_SubwayMovement = player.GetComponent<sc_SubwayMovement>();
 
         int index = Random.Range(0, locationsReserve.Count);
