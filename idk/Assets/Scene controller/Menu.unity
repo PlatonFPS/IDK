@@ -749,7 +749,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7808671862060955659, guid: 0298e80a23cb19043a478cb8dbdb715e, type: 3}
       propertyPath: m_ScreenMatchMode
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7808671862060955659, guid: 0298e80a23cb19043a478cb8dbdb715e, type: 3}
       propertyPath: m_MatchWidthOrHeight
