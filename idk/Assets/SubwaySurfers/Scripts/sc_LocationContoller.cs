@@ -17,7 +17,7 @@ public class sc_LocationContoller : MonoBehaviour
         int index = Random.Range(0, locationsReserve.Count);
         Transform location = locationsReserve[index];
         locationsReserve.RemoveAt(index);
-        location.transform.position = new Vector3(location.transform.position.z, location.transform.position.y, player.position.z);
+        location.transform.position = new Vector3(location.transform.position.z, location.transform.position.y, player.position.z + locationLenght * locationTailCount);
         locations.Add(location);
 
         for (int i = 1; i < locationReserveLenght; i++)
@@ -45,7 +45,7 @@ public class sc_LocationContoller : MonoBehaviour
 
     void Update()
     {
-        if (player.position.z > locations[locationTailCount].position.z + locationLenght / 2)
+        if (player.position.z > locations[locationTailCount].position.z + locationLenght/ 2)
         {
             PopLocation();
             PushLocation();

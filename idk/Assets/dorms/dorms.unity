@@ -2585,7 +2585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sc_SceneContoller: {fileID: 734979754}
-  scene_name: Menu
+  scene_name: Laptop
 --- !u!136 &1474165094
 CapsuleCollider:
   m_ObjectHideFlags: 0
