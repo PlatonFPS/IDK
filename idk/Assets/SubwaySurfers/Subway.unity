@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1538766342}
   locationLenght: 10
-  locationReserveLenght: 5
+  locationReserveLenght: 7
   locationTailCount: 2
   locationOrigin: {fileID: 520299514}
   winCount: 25
@@ -959,7 +959,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1079633361
 Light:
   m_ObjectHideFlags: 0
@@ -1317,13 +1317,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1358914915}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.32083336, y: -0, z: -0, w: 0.9471356}
-  m_LocalPosition: {x: 0, y: 4.41, z: -3.18}
+  m_LocalRotation: {x: 0.30144075, y: -0, z: -0, w: 0.9534849}
+  m_LocalPosition: {x: 0, y: 2.768, z: -1.914}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 37.427, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 35.088, y: 0, z: 0}
 --- !u!114 &1358914919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1952,15 +1952,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5197621187337257117, guid: 116cfbf2f5a1e744488e04419c0a2a9b, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.8
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 5197621187337257117, guid: 116cfbf2f5a1e744488e04419c0a2a9b, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.8
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 5197621187337257117, guid: 116cfbf2f5a1e744488e04419c0a2a9b, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.8
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 5197621187337257117, guid: 116cfbf2f5a1e744488e04419c0a2a9b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2015,12 +2015,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1930658196}
     - target: {fileID: 8017522247291355870, guid: 116cfbf2f5a1e744488e04419c0a2a9b, type: 3}
+      propertyPath: jumpPower
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8017522247291355870, guid: 116cfbf2f5a1e744488e04419c0a2a9b, type: 3}
       propertyPath: WoundedTime
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8017522247291355870, guid: 116cfbf2f5a1e744488e04419c0a2a9b, type: 3}
       propertyPath: forwardSpeed
-      value: 20
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8017522247291355870, guid: 116cfbf2f5a1e744488e04419c0a2a9b, type: 3}
       propertyPath: sc_CameraFollow

@@ -525,6 +525,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3619380170017856344}
   - component: {fileID: 2282146253508208463}
+  - component: {fileID: 2586812469065556446}
+  - component: {fileID: 6797267644707305407}
   m_Layer: 0
   m_Name: Turnstile
   m_TagString: SubwayObstacle
@@ -542,8 +544,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 8372940958988559052}
   m_Father: {fileID: 0}
@@ -562,6 +564,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   model: {fileID: 2977684334235278144}
   dissappearDuration: 2
+--- !u!65 &2586812469065556446
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5480033882968028230}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2.7790349, z: 1}
+  m_Center: {x: 0, y: 1.282045, z: 0}
+--- !u!65 &6797267644707305407
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5480033882968028230}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.16592383, z: 1.49704}
+  m_Center: {x: 0, y: 2.1640878, z: 1.2529255}
 --- !u!1 &5552447784332582934
 GameObject:
   m_ObjectHideFlags: 0
