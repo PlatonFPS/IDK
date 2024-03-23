@@ -231,14 +231,14 @@ RectTransform:
   m_GameObject: {fileID: 350367881}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.9866896, y: 3.1389694, z: 1.9866896}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 2.2103422, y: 3.4923408, z: 2.2103422}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 423301794}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -315, y: 73.698006}
+  m_AnchoredPosition: {x: -323, y: 68.91194}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &350367883
@@ -522,14 +522,14 @@ RectTransform:
   m_GameObject: {fileID: 1488496327}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.9866896, y: 3.1389694, z: 1.9866896}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 2.2103422, y: 3.4923408, z: 2.2103422}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 423301794}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -315, y: -34}
+  m_AnchoredPosition: {x: -323, y: -50.908}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1488496329
@@ -700,14 +700,14 @@ RectTransform:
   m_GameObject: {fileID: 1590703647}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.9866896, y: 3.1389694, z: 1.9866896}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 2.2103422, y: 3.4923408, z: 2.2103422}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 423301794}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -315, y: 182.38701}
+  m_AnchoredPosition: {x: -323, y: 189.83}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1590703649
