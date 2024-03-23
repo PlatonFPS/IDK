@@ -465,8 +465,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 72
+  m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -531,8 +531,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -314.93, y: 212.88}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -515, y: 342}
+  m_SizeDelta: {x: 679.4105, y: 302.8575}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &840405968
 PrefabInstance:
@@ -1852,6 +1852,18 @@ PrefabInstance:
     - target: {fileID: 3245651406837013322, guid: 0298e80a23cb19043a478cb8dbdb715e, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7808671862060955659, guid: 0298e80a23cb19043a478cb8dbdb715e, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7808671862060955659, guid: 0298e80a23cb19043a478cb8dbdb715e, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 7808671862060955659, guid: 0298e80a23cb19043a478cb8dbdb715e, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 8014156866878303783, guid: 0298e80a23cb19043a478cb8dbdb715e, type: 3}
       propertyPath: m_Name
