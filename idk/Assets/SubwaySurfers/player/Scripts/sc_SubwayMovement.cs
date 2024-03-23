@@ -109,7 +109,6 @@ public class sc_SubwayMovement : MonoBehaviour
     private bool playing = true;
     void Update()
     {
-        Debug.Log(groundedCount);
         if (playing)
         {
             Crouching();
