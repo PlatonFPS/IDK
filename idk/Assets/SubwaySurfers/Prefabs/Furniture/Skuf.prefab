@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9068789762720294992}
   - component: {fileID: 7517145801428138574}
   m_Layer: 0
-  m_Name: skuf
+  m_Name: Skuf
   m_TagString: SubwayObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
