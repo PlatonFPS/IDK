@@ -2049,7 +2049,7 @@ PrefabInstance:
       objectReference: {fileID: 1930658196}
     - target: {fileID: 8017522247291355870, guid: 116cfbf2f5a1e744488e04419c0a2a9b, type: 3}
       propertyPath: WoundedTime
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8017522247291355870, guid: 116cfbf2f5a1e744488e04419c0a2a9b, type: 3}
       propertyPath: forwardSpeed
