@@ -148,11 +148,13 @@ public class sc_SubwayMovement : MonoBehaviour
         lives += 1;
     }
 
+    [SerializeField] sc_SceneContoller sc_SceneContoller;
     private void Crashed()
     {
         playing = false;
         SetAnimation("Run", false);
         SetAnimation("Wounded", false);
+        sc_SceneContoller.ChangeScene("Menu");
         Debug.Log("Crashed");
     }
 
