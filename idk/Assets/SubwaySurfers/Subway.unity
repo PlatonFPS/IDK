@@ -2036,7 +2036,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8017522247291355870, guid: 116cfbf2f5a1e744488e04419c0a2a9b, type: 3}
       propertyPath: forwardSpeed
-      value: 25
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8017522247291355870, guid: 116cfbf2f5a1e744488e04419c0a2a9b, type: 3}
       propertyPath: sc_CameraFollow
