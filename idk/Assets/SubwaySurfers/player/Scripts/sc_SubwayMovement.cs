@@ -115,17 +115,32 @@ public class sc_SubwayMovement : MonoBehaviour
             Movement();
             Gravity();
         }
+        else if(win)
+        {
+            WinMovement();
+        }
     }
 
+    [SerializeField] sc_CameraFollow sc_CameraFollow;
+    private bool win = false;
     public void Win()
     {
         playing = false;
+        win = true;
         Debug.Log("Win");
+        sc_CameraFollow.enabled = false;
+        sc_SceneContoller.ChangeScene("Study");
+    }
+
+    private void WinMovement()
+    {
+        rigidbody.position += transform.forward * forwardSpeed * Time.deltaTime;
     }
 
     private int lives = 2;
     private void Crash(GameObject collisionObject)
     {
+        if(!playing) return;
         lives -= 1;
         if(lives <= 0)
         {
@@ -154,8 +169,8 @@ public class sc_SubwayMovement : MonoBehaviour
         playing = false;
         SetAnimation("Run", false);
         SetAnimation("Wounded", false);
-        sc_SceneContoller.ChangeScene("Dorms");
         Debug.Log("Crashed");
+        sc_SceneContoller.ChangeScene("Dorms");
     }
 
     [SerializeField] float gravity;
