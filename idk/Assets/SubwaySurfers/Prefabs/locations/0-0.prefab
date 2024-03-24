@@ -50,7 +50,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6340989299240180109, guid: 3e870984990bc2d459daac2672b9841a, type: 3}
       propertyPath: m_Name
-      value: main 1 Variant
+      value: 0-0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7256146782829966069, guid: 3e870984990bc2d459daac2672b9841a, type: 3}
+      propertyPath: m_Lightmapping
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7256146782829966069, guid: 3e870984990bc2d459daac2672b9841a, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
