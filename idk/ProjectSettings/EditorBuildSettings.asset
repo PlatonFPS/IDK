@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scene controller/Menu.unity
     guid: 52e2b40119e4b974ba164dc1f86218c4
   - enabled: 1
-    path: Assets/dorms/Dorms.unity
+    path: Assets/dorms/dorms.unity
     guid: c506e8b2764695142b6fa98620d1c37d
   - enabled: 1
     path: Assets/SubwaySurfers/Subway.unity
@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Study/Study.unity
     guid: ee223b13014a46b43b1a487d35509cea
+  - enabled: 1
+    path: Assets/options/Options.unity
+    guid: 85f6f8002282c1149a8ba35aa673df94
   m_configObjects: {}
