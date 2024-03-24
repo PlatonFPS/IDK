@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class sc_LetterController : MonoBehaviour
 {
@@ -20,10 +21,10 @@ public class sc_LetterController : MonoBehaviour
         }
     }
 
-    
+    [SerializeField] Image progressBar;
     private void UpdateBar()
     {
-        //text.text = (Mathf.RoundToInt(progress/sentence.Length * 100) + "%").ToString();
+        progressBar.fillAmount = progress / sentence.Length;
     }
 
     [SerializeField] float initialDelay;

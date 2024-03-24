@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class sc_LocationContoller : MonoBehaviour
 {
@@ -48,7 +49,7 @@ public class sc_LocationContoller : MonoBehaviour
         locations.Add(location);
     }
     [SerializeField] int winCount;
-    [SerializeField] TextMeshProUGUI text;
+    [SerializeField] Image progressBar;
     private float currentWinCount = 0;
 
     private void UpdateWinCount()
@@ -59,7 +60,7 @@ public class sc_LocationContoller : MonoBehaviour
             sc_SubwayMovement.Win();
             currentWinCount = winCount;
         }
-        text.text = (Mathf.RoundToInt(currentWinCount / winCount * 100)).ToString() + "%";
+        progressBar.fillAmount = currentWinCount / winCount;
     }
 
     private void PopLocation()
