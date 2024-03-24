@@ -126,9 +126,8 @@ public class sc_SubwayMovement : MonoBehaviour
     {
         playing = false;
         win = true;
-        Debug.Log("Win");
         sc_CameraFollow.enabled = false;
-        sc_SceneContoller.ChangeScene("Study");
+        sc_SceneContoller.ChangeScene("Study", 1);
     }
 
     private void WinMovement()
@@ -168,8 +167,7 @@ public class sc_SubwayMovement : MonoBehaviour
         playing = false;
         SetAnimation("Run", false);
         SetAnimation("Wounded", false);
-        Debug.Log("Crashed");
-        sc_SceneContoller.ChangeScene("Dorms");
+        sc_SceneContoller.ChangeScene("Dorms", 0);
     }
 
     [SerializeField] float gravity;
