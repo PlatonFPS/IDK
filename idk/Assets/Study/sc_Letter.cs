@@ -19,7 +19,7 @@ public class sc_Letter : MonoBehaviour
     [SerializeField] sc_PenFollow sc_PenFollow;
     [SerializeField] sc_LetterController sc_LetterController;
     [SerializeField] sc_SpaceBar sc_SpaceBar;
-    void Update()
+    void LateUpdate()
     {
         transform.Translate(new Vector3(0, -speed * Time.deltaTime, 0));
         if(transform.position.y < down.y)
@@ -31,13 +31,16 @@ public class sc_Letter : MonoBehaviour
             
             if(transform.position.y < up.y)
             {
-                if(sc_SpaceBar.SpaceAvailable)
+                if(sc_SpaceBar.SpaceAvailable != 0)
                 {
                     sc_LetterController.ReturnLetter(this);
                     transform.localPosition = Vector3.zero;
                     speed = 0f;
                 }
-                sc_SpaceBar.SpaceAvailable = false;
+            }
+            if(sc_SpaceBar.SpaceAvailable == 1)
+            {
+                sc_SpaceBar.SpaceAvailable = -1;
             }
         }
     }
