@@ -5,15 +5,17 @@ using UnityEngine.UI;
 
 public class sc_VolumeChange : MonoBehaviour
 {
+    private Slider slider;
+    private void Awake()
+    {
+        slider = GetComponent<Slider>();
+        slider.value = PlayerPrefs.GetFloat("volume");
+    }
+
     [SerializeField] AudioSource audioSource;
     public void SaveVolume()
     {
-        PlayerPrefs.SetFloat("volume", gameObject.GetComponent<Slider>().value);
+        PlayerPrefs.SetFloat("volume", slider.value);
         audioSource.volume = PlayerPrefs.GetFloat("volume");
-    }
-
-    private void Awake()
-    {
-        GetComponent<Slider>().value = PlayerPrefs.GetFloat("volume");
     }
 }

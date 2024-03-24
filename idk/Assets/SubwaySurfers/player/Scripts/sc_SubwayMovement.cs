@@ -8,12 +8,14 @@ public class sc_SubwayMovement : MonoBehaviour
     [SerializeField] int currentLane;
     private Rigidbody rigidbody;
     private CapsuleCollider collider;
+    [SerializeField] sc_MusicContoller sc_MusicContoller;
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
         collider = GetComponent<CapsuleCollider>();
         ChangeToLanePosition(currentLane);
         SetAnimation("Run", true);
+        sc_MusicContoller.Play();
     }
 
     [SerializeField] float minAxisDeviation;
@@ -134,6 +136,7 @@ public class sc_SubwayMovement : MonoBehaviour
         playing = false;
         win = true;
         sc_CameraFollow.enabled = false;
+        sc_MusicContoller.Stop();
         sc_SceneContoller.ChangeScene("Study", true);
     }
 
@@ -174,6 +177,7 @@ public class sc_SubwayMovement : MonoBehaviour
         playing = false;
         SetAnimation("Run", false);
         SetAnimation("Wounded", false);
+        sc_MusicContoller.Stop();
         sc_SceneContoller.ChangeScene("Dorms", false);
     }
 

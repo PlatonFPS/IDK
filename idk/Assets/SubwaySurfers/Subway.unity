@@ -523,6 +523,7 @@ GameObject:
   - component: {fileID: 337934765}
   - component: {fileID: 337934764}
   - component: {fileID: 337934766}
+  - component: {fileID: 337934767}
   m_Layer: 0
   m_Name: Audio Source
   m_TagString: Untagged
@@ -653,6 +654,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2605046d2c66dc46b671dbfe063b056, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &337934767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337934763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c510e3a5f1685044b764de9d73522ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioClip: {fileID: 8300000, guid: 391d2740533828743a5b53467d2a44fc, type: 3}
 --- !u!4 &349722081 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1036716442040280950, guid: a6553c704522e7b46ab827f99c2920fa, type: 3}
@@ -2026,6 +2040,10 @@ PrefabInstance:
       propertyPath: sc_CameraFollow
       value: 
       objectReference: {fileID: 1358914919}
+    - target: {fileID: 8017522247291355870, guid: 116cfbf2f5a1e744488e04419c0a2a9b, type: 3}
+      propertyPath: sc_MusicContoller
+      value: 
+      objectReference: {fileID: 337934767}
     - target: {fileID: 8017522247291355870, guid: 116cfbf2f5a1e744488e04419c0a2a9b, type: 3}
       propertyPath: sc_SceneContoller
       value: 
