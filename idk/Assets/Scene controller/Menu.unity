@@ -600,6 +600,16 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4554209279002495515, guid: c211d37989dfe0e47ac6369540f6dbf6, type: 3}
   m_PrefabInstance: {fileID: 521282147}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1196979187 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8235240612187720343, guid: 0298e80a23cb19043a478cb8dbdb715e, type: 3}
+  m_PrefabInstance: {fileID: 1849377457}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1329310415 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4806072167196887569, guid: 0298e80a23cb19043a478cb8dbdb715e, type: 3}
+  m_PrefabInstance: {fileID: 1849377457}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1762043189 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4554209279002495515, guid: c211d37989dfe0e47ac6369540f6dbf6, type: 3}
@@ -740,6 +750,14 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 3322927650946826789, guid: 0298e80a23cb19043a478cb8dbdb715e, type: 3}
+      propertyPath: fade
+      value: 
+      objectReference: {fileID: 1329310415}
+    - target: {fileID: 3322927650946826789, guid: 0298e80a23cb19043a478cb8dbdb715e, type: 3}
+      propertyPath: message
+      value: 
+      objectReference: {fileID: 1196979187}
     - target: {fileID: 3459393674686282560, guid: 0298e80a23cb19043a478cb8dbdb715e, type: 3}
       propertyPath: m_IsActive
       value: 0

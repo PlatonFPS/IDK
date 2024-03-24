@@ -18,13 +18,11 @@ public class sc_PenFollow : MonoBehaviour
     [SerializeField] sc_SceneContoller sc_SceneContoller;
     public void Win()
     {
-        Debug.Log("Win");
-        sc_SceneContoller.ChangeScene("Dorms");
+        sc_SceneContoller.ChangeScene("Dorms", 1);
     }
     public void Lose()
     {
-        Debug.Log("Lose");
-        sc_SceneContoller.ChangeScene("Dorms");
+        sc_SceneContoller.ChangeScene("Dorms", 0);
     }
 
     void Update()
