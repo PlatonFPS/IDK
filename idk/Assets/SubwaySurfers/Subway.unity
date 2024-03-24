@@ -196,8 +196,20 @@ PrefabInstance:
       value: Progress
       objectReference: {fileID: 0}
     - target: {fileID: 6504909770598609464, guid: b55f8425389fd1d4f9503b457a90cabb, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504909770598609464, guid: b55f8425389fd1d4f9503b457a90cabb, type: 3}
       propertyPath: m_PresetInfoIsWorld
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504909770598609464, guid: b55f8425389fd1d4f9503b457a90cabb, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504909770598609464, guid: b55f8425389fd1d4f9503b457a90cabb, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 6769641152479242927, guid: b55f8425389fd1d4f9503b457a90cabb, type: 3}
       propertyPath: m_LocalScale.x
