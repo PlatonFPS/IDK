@@ -588,7 +588,7 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   winSound: {fileID: 8300000, guid: d1c764e2c4ad7904cacb8465ac6f603d, type: 3}
   loseSound: {fileID: 8300000, guid: 98f39dd6c1150b74d9e915246b8b4f4a, type: 3}
-  loadingTime: 1
+  loadingTime: 0.5
   fade: {fileID: 4806072167196887569}
   message: {fileID: 8235240612187720343}
 --- !u!1 &8104506441133419038
