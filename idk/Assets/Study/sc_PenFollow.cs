@@ -16,13 +16,23 @@ public class sc_PenFollow : MonoBehaviour
     }
 
     [SerializeField] sc_SceneContoller sc_SceneContoller;
+    private bool decided = false;
     public void Win()
     {
-        sc_SceneContoller.ChangeScene("Dorms", 1);
+        if(!decided)
+        {
+            sc_SceneContoller.ChangeScene("Dorms", 1);
+            decided = true;
+        }
+        
     }
     public void Lose()
     {
-        sc_SceneContoller.ChangeScene("Dorms", 0);
+        if (!decided)
+        {
+            sc_SceneContoller.ChangeScene("Dorms", 0);
+            decided = true;
+        }
     }
 
     void Update()
