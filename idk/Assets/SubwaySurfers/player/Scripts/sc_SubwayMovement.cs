@@ -14,8 +14,6 @@ public class sc_SubwayMovement : MonoBehaviour
         collider = GetComponent<CapsuleCollider>();
         ChangeToLanePosition(currentLane);
         SetAnimation("Run", true);
-
-        last = Time.frameCount;
     }
 
     [SerializeField] float minAxisDeviation;
@@ -34,8 +32,7 @@ public class sc_SubwayMovement : MonoBehaviour
             StartCoroutine(SwitchLanes(horizontalInput > minAxisDeviation ? 1 : -1));
         }
 
-        rigidbody.position += transform.forward * forwardSpeed * Time.smoothDeltaTime;
-        //Debug.Log(forwardSpeed * Time.smoothDeltaTime + " | Delta Time: " + Time.smoothDeltaTime);
+        rigidbody.position += transform.forward * forwardSpeed * Time.fixedDeltaTime;
 
         if ((Input.GetKey(KeyCode.Space) || Input.GetAxis("Vertical") > minAxisDeviation) && isGrounded && !crouching)
         {
@@ -91,7 +88,7 @@ public class sc_SubwayMovement : MonoBehaviour
                 crouchTimer = 0;
                 return;
             }
-            crouchTimer -= Time.smoothDeltaTime;
+            crouchTimer -= Time.deltaTime;
         }
     }
     private void UnCrouch()
@@ -109,24 +106,22 @@ public class sc_SubwayMovement : MonoBehaviour
     }
 
     private bool playing = true;
-    float Timer = 0;
-    private int last;
     void Update()
     {
-        Timer += Time.deltaTime;
-        if(Timer >= 1.0f)
-        {
-            Timer = 0.0f;
-            Debug.Log($"FPS: {Time.frameCount - last} | Delta Time: {Time.deltaTime} | Expected FPS: {1.0f / Time.deltaTime}");
-            last = Time.frameCount;
-        }
         if (playing)
         {
             Crouching();
-            Movement();
             Gravity();
         }
-        else if(win)
+    }
+
+    private void FixedUpdate()
+    {
+        if (playing)
+        {
+            Movement();
+        }
+        else if (win)
         {
             WinMovement();
         }
@@ -144,7 +139,7 @@ public class sc_SubwayMovement : MonoBehaviour
 
     private void WinMovement()
     {
-        rigidbody.position += transform.forward * forwardSpeed * Time.smoothDeltaTime;
+        rigidbody.position += transform.forward * forwardSpeed * Time.fixedDeltaTime;
     }
 
     private int lives = 2;
@@ -190,11 +185,11 @@ public class sc_SubwayMovement : MonoBehaviour
     {
         if(rigidbody.velocity.y < 0)
         {
-            rigidbody.AddForce(Physics.gravity * fallingGravity * Time.smoothDeltaTime, ForceMode.Acceleration);
+            rigidbody.AddForce(Physics.gravity * fallingGravity * Time.deltaTime, ForceMode.Acceleration);
         } 
         else
         {
-            rigidbody.AddForce(Physics.gravity * gravity * Time.smoothDeltaTime, ForceMode.Acceleration);
+            rigidbody.AddForce(Physics.gravity * gravity * Time.deltaTime, ForceMode.Acceleration);
         }
     }
     void OnCollisionEnter(Collision collision)
