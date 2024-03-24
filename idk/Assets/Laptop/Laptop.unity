@@ -1104,6 +1104,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playOnAwake: 1
   audioClip: {fileID: 8300000, guid: 83b0c80c3b241664687f142edf23eb43, type: 3}
+  pickUpTime: 1
+  dropOffTime: 1
 --- !u!1 &1958640096
 GameObject:
   m_ObjectHideFlags: 0

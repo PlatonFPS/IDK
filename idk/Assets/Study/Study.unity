@@ -610,7 +610,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c510e3a5f1685044b764de9d73522ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playOnAwake: 0
   audioClip: {fileID: 8300000, guid: 391d2740533828743a5b53467d2a44fc, type: 3}
+  pickUpTime: 1
+  dropOffTime: 1
 --- !u!1 &159709907
 GameObject:
   m_ObjectHideFlags: 0

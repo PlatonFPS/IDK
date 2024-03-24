@@ -355,6 +355,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playOnAwake: 1
   audioClip: {fileID: 8300000, guid: 83b0c80c3b241664687f142edf23eb43, type: 3}
+  pickUpTime: 1
+  dropOffTime: 1
 --- !u!224 &152916464 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4554209279002495515, guid: c211d37989dfe0e47ac6369540f6dbf6, type: 3}
@@ -1379,7 +1381,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
