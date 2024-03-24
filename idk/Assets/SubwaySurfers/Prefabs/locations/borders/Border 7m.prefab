@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2657970726676148043, guid: 3fe914558284d79459d9f4da29f1a77f, type: 3}
       propertyPath: m_Name
-      value: border 10m Variant
+      value: Border 7m
       objectReference: {fileID: 0}
     - target: {fileID: 3640507399395846283, guid: 3fe914558284d79459d9f4da29f1a77f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -71,6 +71,18 @@ PrefabInstance:
     - target: {fileID: 3640507399395846283, guid: 3fe914558284d79459d9f4da29f1a77f, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165405920783495729, guid: 3fe914558284d79459d9f4da29f1a77f, type: 3}
+      propertyPath: m_Name
+      value: Border_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5487029981507001622, guid: 3fe914558284d79459d9f4da29f1a77f, type: 3}
+      propertyPath: m_Name
+      value: Model
+      objectReference: {fileID: 0}
+    - target: {fileID: 7225321695527713837, guid: 3fe914558284d79459d9f4da29f1a77f, type: 3}
+      propertyPath: m_Name
+      value: Border_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

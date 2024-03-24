@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2104048174655289584}
   - component: {fileID: 1222207230457019529}
   m_Layer: 0
-  m_Name: border 10m
+  m_Name: Border 10m
   m_TagString: SubwayObstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -79,7 +79,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7242562052999558025}
   m_Layer: 0
-  m_Name: model
+  m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -157,7 +157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: d94587e5e50ca5e4fba79decd904fb76, type: 3}
       propertyPath: m_Name
-      value: border_cut
+      value: Border_cut
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -235,7 +235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 98b97a0186da4574f937afa889a275a9, type: 3}
       propertyPath: m_Name
-      value: border (1)
+      value: Border_2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -313,7 +313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 98b97a0186da4574f937afa889a275a9, type: 3}
       propertyPath: m_Name
-      value: border
+      value: Border_1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
