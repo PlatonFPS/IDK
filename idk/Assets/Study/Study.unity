@@ -3164,7 +3164,7 @@ GameObject:
   - component: {fileID: 1460796095}
   - component: {fileID: 1460796096}
   m_Layer: 2
-  m_Name: pen
+  m_Name: pencil
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3178,13 +3178,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1460796091}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.096548654, w: -0.9953283}
+  m_LocalRotation: {x: 0, y: 0, z: 0.332408, w: 0.94313574}
   m_LocalPosition: {x: 0, y: 0, z: -0.022199998}
-  m_LocalScale: {x: 1.1099999, y: 1.11, z: 1.11}
+  m_LocalScale: {x: 0.42, y: 0.42, z: 0.42}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 371.081}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 38.83}
 --- !u!212 &1460796093
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3226,7 +3226,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b821fe0a705ccb445a5e4a0fd95f7fdf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e152e3d169f03dd458d8b554e441a4c6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3269,8 +3269,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.38, y: 2.84, z: 0.19999999}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 10.582705, y: 0.9926631, z: 0.19999999}
+  m_Center: {x: -0.10613859, y: -0.044757504, z: 0}
 --- !u!54 &1460796096
 Rigidbody:
   m_ObjectHideFlags: 0
