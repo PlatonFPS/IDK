@@ -38,7 +38,6 @@ public class sc_SubwayMovement : MonoBehaviour
         {
             rigidbody.AddForce(transform.up * jumpPower * jumpCoeffient, ForceMode.Acceleration);
             isGrounded = false;
-            
         }
 
         if ((Input.GetKey(KeyCode.LeftControl) || Input.GetAxis("Vertical") < -minAxisDeviation) && isGrounded && !crouching)
