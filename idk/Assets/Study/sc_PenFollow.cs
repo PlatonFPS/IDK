@@ -21,8 +21,9 @@ public class sc_PenFollow : MonoBehaviour
     {
         if(!decided)
         {
-            sc_SceneContoller.ChangeScene("Dorms", true);
             decided = true;
+            sc_MusicContoller.Stop();
+            sc_SceneContoller.ChangeScene("Dorms", true);
         }
         
     }
@@ -30,9 +31,16 @@ public class sc_PenFollow : MonoBehaviour
     {
         if (!decided)
         {
-            sc_SceneContoller.ChangeScene("Dorms", false);
             decided = true;
+            sc_MusicContoller.Stop();
+            sc_SceneContoller.ChangeScene("Dorms", false);
         }
+    }
+
+    [SerializeField] sc_MusicContoller sc_MusicContoller;
+    private void Awake()
+    {
+        sc_MusicContoller.Play();
     }
 
     void Update()
