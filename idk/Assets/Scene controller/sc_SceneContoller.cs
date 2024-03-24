@@ -18,25 +18,32 @@ public class sc_SceneContoller : MonoBehaviour
         SetBools();
     }
 
-    public void ChangeScene(string sceneName, int win)
+    public void ChangeScene(string sceneName, bool win)
     {
-        StartCoroutine(Animation(sceneName, win));
+        if(win == false)
+        {
+            message.SetTrigger("Lose");
+        }
+        else
+        {
+            StartCoroutine(Animation(sceneName, true));
+        }
     }
     public void ChangeScene(string sceneName)
     {
-        StartCoroutine(Animation(sceneName, -1));
+        StartCoroutine(Animation(sceneName));
     }
     [SerializeField] float loadingTime = 2f;
     [SerializeField] Animator fade;
     [SerializeField] Animator message;
-    IEnumerator Animation(string sceneName, int win)
+    IEnumerator Animation(string sceneName, bool win = false)
     {
-        SetBools();
-        if (win != -1)
+        if (win == true)
         {
-            message.SetTrigger(win == 1 ? "Win" : "Lose");
+            message.SetTrigger("Win");
             yield return new WaitForSeconds(2);
         }
+        SetBools();
         fade.SetTrigger("ChangeScene");
         yield return new WaitForSeconds(2 + loadingTime);
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
