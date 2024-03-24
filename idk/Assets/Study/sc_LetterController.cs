@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class sc_LetterController : MonoBehaviour
 {
-    [SerializeField] string sentence;
+    [SerializeField] int length;
 
     private float progress = 0;
     [SerializeField] sc_PenFollow pen;
@@ -15,7 +15,7 @@ public class sc_LetterController : MonoBehaviour
         letters.Add(letter);
         progress += 1;
         UpdateBar();
-        if(progress == sentence.Length)
+        if(progress == length)
         {
             pen.Win();
         }
@@ -24,7 +24,7 @@ public class sc_LetterController : MonoBehaviour
     [SerializeField] Image progressBar;
     private void UpdateBar()
     {
-        progressBar.fillAmount = progress / sentence.Length;
+        progressBar.fillAmount = progress / length;
     }
 
     [SerializeField] float initialDelay;
@@ -43,7 +43,7 @@ public class sc_LetterController : MonoBehaviour
 
     void Update()
     {
-        if(index < sentence.Length)
+        if(index < length)
         {
             if (Timer > 0)
             {
@@ -66,7 +66,7 @@ public class sc_LetterController : MonoBehaviour
     private void SendSentence()
     {
         Vector3 position = new Vector3(Random.Range(left.position.x, right.position.x), left.position.y, left.position.z);
-        letters[0].StartMove(position, down.position, up.position, speed, sentence[Mathf.FloorToInt(index)].ToString());
+        letters[0].StartMove(position, down.position, up.position, speed);
         letters.RemoveAt(0);
         index += 1;
     }

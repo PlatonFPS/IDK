@@ -21,7 +21,7 @@ public class sc_PenFollow : MonoBehaviour
     {
         if(!decided)
         {
-            sc_SceneContoller.ChangeScene("Dorms", 1);
+            sc_SceneContoller.ChangeScene("Dorms", true);
             decided = true;
         }
         
@@ -30,7 +30,7 @@ public class sc_PenFollow : MonoBehaviour
     {
         if (!decided)
         {
-            sc_SceneContoller.ChangeScene("Dorms", 0);
+            sc_SceneContoller.ChangeScene("Dorms", false);
             decided = true;
         }
     }

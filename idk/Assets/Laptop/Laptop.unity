@@ -305,10 +305,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8499370874047555975, guid: c211d37989dfe0e47ac6369540f6dbf6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8499370874047555975, guid: c211d37989dfe0e47ac6369540f6dbf6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8499370874047555975, guid: c211d37989dfe0e47ac6369540f6dbf6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8499370874047555975, guid: c211d37989dfe0e47ac6369540f6dbf6, type: 3}
@@ -316,11 +320,23 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1435563574}
     - target: {fileID: 8499370874047555975, guid: c211d37989dfe0e47ac6369540f6dbf6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1435563574}
+    - target: {fileID: 8499370874047555975, guid: c211d37989dfe0e47ac6369540f6dbf6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8499370874047555975, guid: c211d37989dfe0e47ac6369540f6dbf6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8499370874047555975, guid: c211d37989dfe0e47ac6369540f6dbf6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: set_noLoadingScreenEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: 8499370874047555975, guid: c211d37989dfe0e47ac6369540f6dbf6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: ChangeScene
       objectReference: {fileID: 0}
     - target: {fileID: 8499370874047555975, guid: c211d37989dfe0e47ac6369540f6dbf6, type: 3}
@@ -328,11 +344,27 @@ PrefabInstance:
       value: sc_SceneContoller, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8499370874047555975, guid: c211d37989dfe0e47ac6369540f6dbf6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: sc_SceneContoller, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8499370874047555975, guid: c211d37989dfe0e47ac6369540f6dbf6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8499370874047555975, guid: c211d37989dfe0e47ac6369540f6dbf6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_StringArgument
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8499370874047555975, guid: c211d37989dfe0e47ac6369540f6dbf6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_StringArgument
       value: Menu
       objectReference: {fileID: 0}
     - target: {fileID: 8499370874047555975, guid: c211d37989dfe0e47ac6369540f6dbf6, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8499370874047555975, guid: c211d37989dfe0e47ac6369540f6dbf6, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -680,6 +712,10 @@ PrefabInstance:
     - target: {fileID: 3245651406837013322, guid: 0298e80a23cb19043a478cb8dbdb715e, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3322927650946826789, guid: 0298e80a23cb19043a478cb8dbdb715e, type: 3}
+      propertyPath: noLoadingScreenEnd
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8014156866878303783, guid: 0298e80a23cb19043a478cb8dbdb715e, type: 3}
       propertyPath: m_Name
