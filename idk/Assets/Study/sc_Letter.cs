@@ -33,11 +33,11 @@ public class sc_Letter : MonoBehaviour
             {
                 if(sc_SpaceBar.SpaceAvailable)
                 {
-                    sc_SpaceBar.SpaceAvailable = false;
                     sc_LetterController.ReturnLetter(this);
                     transform.localPosition = Vector3.zero;
                     speed = 0f;
                 }
+                sc_SpaceBar.SpaceAvailable = false;
             }
         }
     }
