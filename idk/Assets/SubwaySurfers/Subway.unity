@@ -799,7 +799,7 @@ MonoBehaviour:
   locationReserveLenght: 7
   locationTailCount: 2
   locationOrigin: {fileID: 520299514}
-  winCount: 25
+  winCount: 20
   progressBar: {fileID: 90830812}
 --- !u!4 &578858651 stripped
 Transform:

@@ -110,10 +110,10 @@ public class sc_SubwayMovement : MonoBehaviour
     private bool playing = true;
     void Update()
     {
+        Gravity();
         if (playing)
         {
             Crouching();
-            Gravity();
         }
     }
 
