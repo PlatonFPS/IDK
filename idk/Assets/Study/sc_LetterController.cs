@@ -13,17 +13,17 @@ public class sc_LetterController : MonoBehaviour
     {
         letters.Add(letter);
         progress += 1;
-        UpdateText();
+        UpdateBar();
         if(progress == sentence.Length)
         {
             pen.Win();
         }
     }
 
-    [SerializeField] TextMeshProUGUI text;
-    private void UpdateText()
+    
+    private void UpdateBar()
     {
-        text.text = (Mathf.RoundToInt(progress/sentence.Length * 100) + "%").ToString();
+        //text.text = (Mathf.RoundToInt(progress/sentence.Length * 100) + "%").ToString();
     }
 
     [SerializeField] float initialDelay;
