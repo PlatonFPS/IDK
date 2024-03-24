@@ -10,8 +10,11 @@ public class sc_LetterController : MonoBehaviour
 
     private float progress = 0;
     [SerializeField] sc_PenFollow pen;
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip audioClip;
     public void ReturnLetter(sc_Letter letter)
     {
+        audioSource.PlayOneShot(audioClip);
         letters.Add(letter);
         progress += 1;
         UpdateBar();

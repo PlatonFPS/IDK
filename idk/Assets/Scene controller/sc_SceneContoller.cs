@@ -18,11 +18,15 @@ public class sc_SceneContoller : MonoBehaviour
         SetBools();
     }
 
+    [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip winSound;
+    [SerializeField] AudioClip loseSound;
     public void ChangeScene(string sceneName, bool win)
     {
         if(win == false)
         {
             message.SetTrigger("Lose");
+            audioSource.PlayOneShot(loseSound);
         }
         else
         {
@@ -41,6 +45,7 @@ public class sc_SceneContoller : MonoBehaviour
         if (win == true)
         {
             message.SetTrigger("Win");
+            audioSource.PlayOneShot(winSound);
             yield return new WaitForSeconds(2);
         }
         SetBools();
