@@ -14,6 +14,8 @@ public class sc_SubwayMovement : MonoBehaviour
         collider = GetComponent<CapsuleCollider>();
         ChangeToLanePosition(currentLane);
         SetAnimation("Run", true);
+
+        last = Time.frameCount;
     }
 
     [SerializeField] float minAxisDeviation;
@@ -32,8 +34,8 @@ public class sc_SubwayMovement : MonoBehaviour
             StartCoroutine(SwitchLanes(horizontalInput > minAxisDeviation ? 1 : -1));
         }
 
-        rigidbody.position += transform.forward * forwardSpeed * Time.smoothDeltaTime;
-        Debug.Log(forwardSpeed * Time.smoothDeltaTime + " | Delta Time: " + Time.smoothDeltaTime);
+        //rigidbody.position += transform.forward * forwardSpeed * Time.smoothDeltaTime;
+        //Debug.Log(forwardSpeed * Time.smoothDeltaTime + " | Delta Time: " + Time.smoothDeltaTime);
 
         if ((Input.GetKey(KeyCode.Space) || Input.GetAxis("Vertical") > minAxisDeviation) && isGrounded && !crouching)
         {
@@ -107,8 +109,18 @@ public class sc_SubwayMovement : MonoBehaviour
     }
 
     private bool playing = true;
+    float Timer = 0;
+    private int last;
     void Update()
     {
+        Timer += Time.deltaTime;
+        if(Timer >= 1.0f)
+        {
+            Timer = 0.0f;
+            Debug.Log($"FPS: {Time.frameCount - last} | Delta Time: {Time.deltaTime} | Expected FPS: {1.0f / Time.deltaTime}");
+            last = Time.frameCount;
+        }
+        //Debug.Log(Time.deltaTime);
         if (playing)
         {
             Crouching();
