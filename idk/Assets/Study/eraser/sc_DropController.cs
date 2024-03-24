@@ -13,9 +13,7 @@ public class sc_DropController : MonoBehaviour
         Timer = startDelay;
         for(int i = 0; i < transform.childCount; i++)
         {
-            Debug.Log(transform.GetChild(i).name);
             sc_DropCollisions.Add(transform.GetChild(i).GetComponent<sc_DropCollision>());
-            Debug.Log(transform.GetChild(i).name);
         }
     }
 

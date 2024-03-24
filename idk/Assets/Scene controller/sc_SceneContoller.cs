@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class sc_SceneContoller : MonoBehaviour
 {
+    [SerializeField] bool noLoadingScreenStart;
+    private void Awake()
+    {
+        fade.SetBool("AltStart", noLoadingScreenStart);
+    }
+
     public void ChangeScene(string sceneName, int win)
     {
         StartCoroutine(Animation(sceneName, win));

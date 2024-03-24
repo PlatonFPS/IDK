@@ -33,6 +33,7 @@ public class sc_SubwayMovement : MonoBehaviour
         }
 
         rigidbody.position += transform.forward * forwardSpeed * Time.deltaTime;
+        Debug.Log(forwardSpeed * Time.deltaTime + " | Delta Time: " + Time.deltaTime);
 
         if ((Input.GetKey(KeyCode.Space) || Input.GetAxis("Vertical") > minAxisDeviation) && isGrounded && !crouching)
         {

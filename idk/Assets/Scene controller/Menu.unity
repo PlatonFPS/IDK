@@ -758,6 +758,10 @@ PrefabInstance:
       propertyPath: message
       value: 
       objectReference: {fileID: 1196979187}
+    - target: {fileID: 3322927650946826789, guid: 0298e80a23cb19043a478cb8dbdb715e, type: 3}
+      propertyPath: noLoadingScreenStart
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3459393674686282560, guid: 0298e80a23cb19043a478cb8dbdb715e, type: 3}
       propertyPath: m_IsActive
       value: 0
