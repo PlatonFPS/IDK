@@ -5,10 +5,9 @@ using UnityEngine;
 public class sc_MusicContoller : MonoBehaviour
 {
     [SerializeField] bool playOnAwake = false;
-    private AudioSource audioSource;
+    [SerializeField] AudioSource audioSource;
     private void Awake()
     {
-        audioSource = GetComponent<AudioSource>();
         if (playOnAwake)
         {
             Play();

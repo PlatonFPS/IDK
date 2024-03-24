@@ -354,6 +354,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playOnAwake: 1
+  audioSource: {fileID: 98092187}
   audioClip: {fileID: 8300000, guid: 83b0c80c3b241664687f142edf23eb43, type: 3}
   pickUpTime: 1
   dropOffTime: 1
