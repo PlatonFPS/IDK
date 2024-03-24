@@ -5,9 +5,17 @@ using UnityEngine;
 public class sc_SceneContoller : MonoBehaviour
 {
     [SerializeField] bool noLoadingScreenStart;
-    private void Awake()
+    public bool noLoadingScreenEnd { get; set; }
+    private void SetBools()
     {
         fade.SetBool("AltStart", noLoadingScreenStart);
+        fade.SetBool("AltEnd", noLoadingScreenEnd);
+    }
+
+    private void Awake()
+    {
+        noLoadingScreenEnd = false;
+        SetBools();
     }
 
     public void ChangeScene(string sceneName, int win)
@@ -23,7 +31,8 @@ public class sc_SceneContoller : MonoBehaviour
     [SerializeField] Animator message;
     IEnumerator Animation(string sceneName, int win)
     {
-        if(win != -1)
+        SetBools();
+        if (win != -1)
         {
             message.SetTrigger(win == 1 ? "Win" : "Lose");
             yield return new WaitForSeconds(2);

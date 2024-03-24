@@ -548,7 +548,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noLoadingScreenStart: 0
-  loadingTime: 2
+  noLoadingScreenEnd: 0
+  loadingTime: 1
   fade: {fileID: 4806072167196887569}
   message: {fileID: 8235240612187720343}
 --- !u!1 &8104506441133419038
