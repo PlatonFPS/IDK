@@ -32,8 +32,8 @@ public class sc_SubwayMovement : MonoBehaviour
             StartCoroutine(SwitchLanes(horizontalInput > minAxisDeviation ? 1 : -1));
         }
 
-        rigidbody.position += transform.forward * forwardSpeed * Time.deltaTime;
-        Debug.Log(forwardSpeed * Time.deltaTime + " | Delta Time: " + Time.deltaTime);
+        rigidbody.position += transform.forward * forwardSpeed * Time.smoothDeltaTime;
+        Debug.Log(forwardSpeed * Time.smoothDeltaTime + " | Delta Time: " + Time.smoothDeltaTime);
 
         if ((Input.GetKey(KeyCode.Space) || Input.GetAxis("Vertical") > minAxisDeviation) && isGrounded && !crouching)
         {
@@ -89,7 +89,7 @@ public class sc_SubwayMovement : MonoBehaviour
                 crouchTimer = 0;
                 return;
             }
-            crouchTimer -= Time.deltaTime;
+            crouchTimer -= Time.smoothDeltaTime;
         }
     }
     private void UnCrouch()
@@ -133,7 +133,7 @@ public class sc_SubwayMovement : MonoBehaviour
 
     private void WinMovement()
     {
-        rigidbody.position += transform.forward * forwardSpeed * Time.deltaTime;
+        rigidbody.position += transform.forward * forwardSpeed * Time.smoothDeltaTime;
     }
 
     private int lives = 2;
@@ -179,11 +179,11 @@ public class sc_SubwayMovement : MonoBehaviour
     {
         if(rigidbody.velocity.y < 0)
         {
-            rigidbody.AddForce(Physics.gravity * fallingGravity * Time.deltaTime, ForceMode.Acceleration);
+            rigidbody.AddForce(Physics.gravity * fallingGravity * Time.smoothDeltaTime, ForceMode.Acceleration);
         } 
         else
         {
-            rigidbody.AddForce(Physics.gravity * gravity * Time.deltaTime, ForceMode.Acceleration);
+            rigidbody.AddForce(Physics.gravity * gravity * Time.smoothDeltaTime, ForceMode.Acceleration);
         }
     }
     void OnCollisionEnter(Collision collision)
